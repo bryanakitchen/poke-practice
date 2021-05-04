@@ -12,7 +12,8 @@ class App extends Component {
   state = {
     pokeData: [],
     search: '',
-    typeValue: ''
+    typeValue: '',
+    fakeState: ''
   }
 
   componentDidMount() {
