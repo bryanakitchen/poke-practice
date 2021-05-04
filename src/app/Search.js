@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 
 export default class Search extends Component {
-  render() {
-    return (
-      <form>
-        <input />
-        <button>Search</button>
-      </form>
-    );
-  }
+    state = {
+      search: ''
+    }
+
+    handleSubmit = e => {
+      e.preventDefault();
+      
+    }
+
+    handleChange = ({ target }) => {
+      this.setState({ search: target.value });
+      console.log(target.value);
+    }
+
+    render() {
+      const { search } = this.state;
+      return (
+        <form onSubmit={this.handleSubmit} >
+          <input value={search} onChange={this.handleChange} />
+          <button>Search</button>
+        </form>
+      );
+    }
 }
