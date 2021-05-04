@@ -10,7 +10,8 @@ const API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 
 class App extends Component {
   state = {
-    pokeData: []
+    pokeData: [],
+    search: ''
   }
 
   componentDidMount() {
@@ -18,8 +19,17 @@ class App extends Component {
   }
 
   async fetchPoke() {
-    const response = await request.get(API_URL);
+    const { search } = this.state;
+
+    const response = await request
+      .get(API_URL)
+      .query({ pokemon: search });
+    
     this.setState({ pokeData: response.body.results });
+  }
+
+  handleSearch = ({ search }) => {
+    this.setState({ search }, () => this.fetchPoke());
   }
 
   render() {
@@ -28,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Search />
+        <Search onSearch={this.handleSearch} />
         <PokeList pokeProp={pokeData} />
       </div>
     );
