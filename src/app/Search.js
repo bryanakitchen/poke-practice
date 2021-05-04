@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 export default class Search extends Component {
     state = {
-      search: ''
+      search: '',
+      typeValue: ''
     }
 
     handleSubmit = e => {
@@ -16,9 +17,18 @@ export default class Search extends Component {
 
     render() {
       const { search } = this.state;
+      const { typesProp } = this.props;
+
       return (
         <form onSubmit={this.handleSubmit} >
           <input value={search} onChange={this.handleChange} />
+          <select>
+            <option value=''>All</option>
+            { typesProp.map(item => (
+              <option>{item}</option>
+            ))
+            }
+          </select>
           <button>Search</button>
         </form>
       );
