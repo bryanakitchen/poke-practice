@@ -13,6 +13,7 @@ class App extends Component {
     pokeData: [],
     search: '',
     typesList: [],
+    typeValue: ''
   }
 
   componentDidMount() {
@@ -20,24 +21,24 @@ class App extends Component {
   }
 
   async fetchPoke() {
-    const { search } = this.state;
+    const { search, typeValue } = this.state;
 
     const response = await request
       .get(API_URL)
-      .query({ pokemon: search });
+      .query({ pokemon: search })
+      .query({ type: typeValue || undefined });
 
     const typeData = [...new Set(response.body.results.map(item => item.type_1))];
 
     this.setState({ pokeData: response.body.results, typesList: typeData });
   }
 
-  handleSearch = ({ search }) => {
-    this.setState({ search }, () => this.fetchPoke());
+  handleSearch = ({ search, typeValue }) => {
+    this.setState({ search, typeValue }, () => this.fetchPoke());
   }
 
   render() {
     const { pokeData, typesList } = this.state;
-    console.log(typesList);
 
     return (
       <div className="App">

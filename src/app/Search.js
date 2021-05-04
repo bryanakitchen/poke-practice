@@ -15,6 +15,10 @@ export default class Search extends Component {
       this.setState({ search: target.value });
     }
 
+    handleFilter = ({ target }) => {
+      this.setState({ typeValue: target.value });
+    }
+
     render() {
       const { search } = this.state;
       const { typesProp } = this.props;
@@ -22,13 +26,15 @@ export default class Search extends Component {
       return (
         <form onSubmit={this.handleSubmit} >
           <input value={search} onChange={this.handleChange} />
-          <select>
+
+          <select onChange={this.handleFilter}>
             <option value=''>All</option>
             { typesProp.map(item => (
-              <option>{item}</option>
+              <option value={item}>{item}</option>
             ))
             }
           </select>
+          
           <button>Search</button>
         </form>
       );
