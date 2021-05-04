@@ -3,12 +3,13 @@ import './PokeItem.scss';
 
 export default class PokeItem extends Component {
   render() {
+    const { itemProp } = this.props;
     return (
-      <div className="PokeItem">
-        <h3>Name of Puppy</h3>
-        <img src="https://place-puppy.com/210x210" alt="puppy"/>
-        <p>Type: Cute</p>
-      </div>
+      <li className="PokeItem">
+        <h3>{itemProp.pokemon}</h3>
+        <img src={itemProp.url_image} alt={itemProp.pokemon} />
+        <p>Type: {itemProp.type_1}</p>
+      </li>
     );
   }
 }

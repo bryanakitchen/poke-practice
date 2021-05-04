@@ -4,15 +4,13 @@ import './PokeList.scss';
 
 export default class PokeList extends Component {
   render() {
+    const { pokeProp } = this.props;
     return (
-      <div className="PokeList">
-        <PokeItem />
-        <PokeItem />
-        <PokeItem />
-        <PokeItem />
-        <PokeItem />
-        <PokeItem />
-      </div>
+      <ul className="PokeList">
+        {pokeProp.map(item => (
+          <PokeItem itemProp={item} key={item._id} />
+        ))}
+      </ul>
     );
   }
 }
