@@ -1,9 +1,8 @@
 .PokeList {
-    border: solid pink 1px;
-    display: grid;
-    // justify-content: center;
     margin: 0;
     padding: 0;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }

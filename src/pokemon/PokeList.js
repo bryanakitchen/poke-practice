@@ -7,6 +7,11 @@ export default class PokeList extends Component {
     return (
       <div className="PokeList">
         <PokeItem />
+        <PokeItem />
+        <PokeItem />
+        <PokeItem />
+        <PokeItem />
+        <PokeItem />
       </div>
     );
   }
