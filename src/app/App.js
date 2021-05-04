@@ -4,6 +4,7 @@ import React from 'react';
 import Header from './Header';
 import PokeList from '../pokemon/PokeList';
 import request from 'superagent';
+import Search from './Search';
 
 const API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 
@@ -27,6 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Search />
         <PokeList pokeProp={pokeData} />
       </div>
     );
