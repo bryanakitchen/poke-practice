@@ -12,7 +12,6 @@ class App extends Component {
   state = {
     pokeData: [],
     search: '',
-    typesList: [],
     typeValue: ''
   }
 
@@ -38,12 +37,12 @@ class App extends Component {
   }
 
   render() {
-    const { pokeData, typesList } = this.state;
+    const { pokeData } = this.state;
 
     return (
       <div className="App">
         <Header />
-        <Search onSearch={this.handleSearch} typesProp={typesList} />
+        <Search onSearch={this.handleSearch} />
         <PokeList pokeProp={pokeData} />
       </div>
     );
