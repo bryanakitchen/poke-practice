@@ -1,8 +1,10 @@
-.App {
-  display: grid;
+body {
+  background: rgb(207, 228, 248);
+  margin: 0;
 }
 
-/* TODO: remove **/
-img {
-  margin: 50px auto;
+.App {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  justify-content: center;
 }
